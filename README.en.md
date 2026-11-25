@@ -28,7 +28,7 @@ Press a shortcut and the tab you just closed returns to its original window and 
 
 ## Features
 
-| | |
+| Feature | Description |
 | --- | --- |
 | **Keyboard Shortcut** | Press `Alt` `Z` to reopen the last closed tab in its original window and position, with its Back and Forward history. Press again to keep going. |
 | **Mouse Gestures** | Hold the right mouse button and draw a Z. Choose from five gestures, with forgiving recognition and repeat gestures to reopen several tabs. Off by default. |
@@ -41,18 +41,29 @@ TabAgain also supports light and dark appearance, and is available in English, S
 
 ## Installation
 
-### Chrome, Edge, and other Chromium browsers (120 or later)
+Download the package for your browser from [Releases](https://github.com/cocang/TabAgain/releases/latest).
 
-1. Download this repository (**Code → Download ZIP**) and unzip it, or use `git clone`.
+| Browser | Package |
+| --- | --- |
+| Chrome, Edge, and other Chromium browsers (120 or later) | `TabAgain-1.0.0-chrome.zip` |
+| Firefox (140 or later) | `TabAgain-1.0.0-firefox.xpi` |
+
+### Chrome, Edge, and Other Chromium Browsers
+
+1. Download `TabAgain-1.0.0-chrome.zip` and unzip it to a permanent location.
 2. Open `chrome://extensions` and turn on **Developer mode** in the upper-right corner.
-3. Click **Load unpacked** and select the `src` folder in the repository.
+3. Click **Load unpacked** and select the unzipped folder.
 
-### Firefox (140 or later)
+> Keep the folder after loading. If you delete or move it, the extension stops working.
 
-1. In the repository root, run `python3 tools/build.py` to create `dist/TabAgain-1.0.0-firefox.xpi`.
-2. Open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on**, and select the file.
+### Firefox
+
+1. Download `TabAgain-1.0.0-firefox.xpi`.
+2. Open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on**, and select the downloaded file.
 
 > Temporary add-ons are removed when Firefox restarts. For everyday use, install a version signed by Mozilla.
+
+To install from source, see [Building from Source](#building-from-source).
 
 ## Usage
 

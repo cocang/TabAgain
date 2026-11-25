@@ -28,7 +28,7 @@ TabAgain 是一个浏览器扩展，用来重新打开关闭的标签页和窗�
 
 ## 功能
 
-| | |
+| 功能 | 说明 |
 | --- | --- |
 | **快捷键恢复** | 按 `Alt` `Z` 重新打开上次关闭的标签页。回到原窗口、原位置，保留前进与后退记录。连续按下可逐个恢复。 |
 | **鼠标手势** | 按住右键画一个 Z 即可恢复。提供五种手势，识别宽容，可连画恢复多个。默认关闭。 |
@@ -41,18 +41,29 @@ TabAgain 是一个浏览器扩展，用来重新打开关闭的标签页和窗�
 
 ## 安装
 
-### Chrome、Edge 及其他 Chromium 浏览器（120 及以上）
+从 [Releases](https://github.com/cocang/TabAgain/releases/latest) 下载对应浏览器的安装包。
 
-1. 下载本仓库（**Code → Download ZIP**）并解压，或使用 `git clone`。
+| 浏览器 | 安装包 |
+| --- | --- |
+| Chrome、Edge 及其他 Chromium 浏览器（120 及以上） | `TabAgain-1.0.0-chrome.zip` |
+| Firefox（140 及以上） | `TabAgain-1.0.0-firefox.xpi` |
+
+### Chrome、Edge 及其他 Chromium 浏览器
+
+1. 下载 `TabAgain-1.0.0-chrome.zip` 并解压到一个固定位置。
 2. 打开 `chrome://extensions`，开启右上角的 **开发者模式**。
-3. 点 **加载已解压的扩展程序**，选择仓库中的 `src` 文件夹。
+3. 点 **加载已解压的扩展程序**，选择解压出的文件夹。
 
-### Firefox（140 及以上）
+> 加载后请保留这个文件夹，删除或移动它会导致扩展失效。
 
-1. 在仓库根目录运行 `python3 tools/build.py`，生成 `dist/TabAgain-1.0.0-firefox.xpi`。
-2. 打开 `about:debugging#/runtime/this-firefox`，点 **临时载入附加组件**，选择生成的文件。
+### Firefox
+
+1. 下载 `TabAgain-1.0.0-firefox.xpi`。
+2. 打开 `about:debugging#/runtime/this-firefox`，点 **临时载入附加组件**，选择下载的文件。
 
 > 临时载入的附加组件会在 Firefox 重新启动后移除。长期使用请安装经 Mozilla 签名的版本。
+
+如需从源码安装，请参阅 [从源码构建](#从源码构建)。
 
 ## 使用
 
