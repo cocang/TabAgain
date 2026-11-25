@@ -99,7 +99,7 @@ Gestures aren’t available on browser pages, extension stores, the New Tab page
 
 ## Privacy and Permissions
 
-TabAgain doesn’t collect or upload any data. Records are stored locally in your browser’s IndexedDB and are deleted when you remove the extension.
+TabAgain doesn’t collect or upload any data. Records are stored locally in your browser’s IndexedDB and are deleted when you remove the extension. See the full [Privacy Policy](PRIVACY.md).
 
 | Permission | Purpose |
 | --- | --- |
