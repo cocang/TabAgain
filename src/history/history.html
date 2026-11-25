@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="historyDocTitle">历史记录 · TabAgain</title>
+  <link rel="icon" href="../icons/icon-32.png">
+  <script src="../shared/theme.js"></script>
+  <link rel="stylesheet" href="../shared/tokens.css">
+  <link rel="stylesheet" href="../shared/list.css">
+  <link rel="stylesheet" href="history.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <div class="shell">
+    <header class="topbar">
+      <div class="title-block">
+        <img class="mark" src="../icons/logo-256.png" alt="">
+        <div>
+          <h1 data-i18n="historyTitle">历史</h1>
+          <p class="count" id="count"></p>
+        </div>
+      </div>
+
+      <label class="search glass" id="search-wrap">
+        <svg class="i"><use href="#i-search"/></svg>
+        <input id="search" type="text" spellcheck="false" autocomplete="off" data-i18n-placeholder="searchPlaceholderLong">
+        <span class="kbd search-hint" aria-hidden="true"><kbd>/</kbd></span>
+        <button class="search-clear" id="search-clear" type="button" hidden data-i18n-title="clearSearch"><svg class="i"><use href="#i-close"/></svg></button>
+      </label>
+
+      <div class="tools">
+        <button class="tool" id="btn-clear" data-i18n-title="clearRangeTitle"><svg class="i"><use href="#i-trash"/></svg></button>
+        <button class="tool" id="btn-settings" data-i18n-title="settings"><svg class="i"><use href="#i-sliders"/></svg></button>
+      </div>
+    </header>
+
+    <div class="filters">
+      <nav class="chips" id="chips" data-i18n-label="sitesLabel"></nav>
+      <div class="filter-info" id="filter-info" hidden>
+        <span id="filter-text"></span>
+        <button class="link danger" id="filter-delete"></button>
+      </div>
+    </div>
+
+    <div class="body">
+      <main class="scroller" id="scroller">
+        <div class="column">
+          <div class="sticky" id="sticky" hidden><div class="section-label"><span class="label"></span><span class="n"></span></div></div>
+          <div class="vlist" id="list" role="listbox" aria-multiselectable="true" tabindex="-1" data-i18n-label="historyTitle"></div>
+          <div class="status" id="status" hidden></div>
+        </div>
+      </main>
+
+      <aside class="scrubber" id="scrubber" aria-hidden="true">
+        <div class="track" id="track"></div>
+        <div class="thumb" id="thumb"></div>
+        <div class="bubble glass" id="bubble"></div>
+      </aside>
+
+      <div class="empty" id="empty" hidden>
+        <div class="empty-art" aria-hidden="true">
+          <span class="card c3"></span><span class="card c2"></span>
+          <span class="card c1"><svg class="i"><use href="#i-history"/></svg></span>
+        </div>
+        <h2 id="empty-title"></h2>
+        <p id="empty-hint"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager-dock"><div id="pager"></div></div>
+
+  <div class="selbar glass" id="selbar" role="toolbar" aria-live="polite">
+    <span class="sel-count" id="sel-count"></span>
+    <span class="sep"></span>
+    <button class="sel-btn" id="sel-restore"><svg class="i i-sm"><use href="#i-restore"/></svg><span data-i18n="restore">恢复</span></button>
+    <button class="sel-btn danger" id="sel-delete"><svg class="i i-sm"><use href="#i-trash"/></svg><span data-i18n="delete">删除</span></button>
+    <button class="sel-btn ghost" id="sel-cancel" data-i18n-title="cancel"><svg class="i i-sm"><use href="#i-close"/></svg></button>
+  </div>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="dialog glass" id="dialog" role="alertdialog" aria-modal="true" aria-labelledby="dlg-title" hidden>
+    <span class="dlg-icon" id="dlg-icon"></span>
+    <h3 id="dlg-title"></h3>
+    <p id="dlg-body"></p>
+    <div class="dlg-extra" id="dlg-extra"></div>
+    <div class="dlg-actions">
+      <button class="btn" id="dlg-cancel" data-i18n="cancel">取消</button>
+      <button class="btn primary" id="dlg-ok"></button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg class="i"><use href="#i-check"/></svg>
+    <span class="toast-text"></span>
+    <button class="toast-undo" data-i18n="undo">撤销</button>
+  </div>
+
+  <script src="../shared/icons.js"></script>
+  <script src="history.js" type="module"></script>
+</body>
+</html>

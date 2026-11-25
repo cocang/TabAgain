@@ -1,0 +1,256 @@
+/* =============================================================================
+   首次安装引导：一张悬浮的玻璃卡片
+   舞台（Lottie）· 两段进度 · 标题与说明 · 快捷键与鼠标手势 · 操作
+   品牌色取自图标：蓝 #3D8BFF → 紫 #7B5CFF
+   ============================================================================= */
+.welcome {
+  --brand-a: #3D8BFF; --brand-b: #7B5CFF; --brand-m: #5C74FF;
+  --brand: linear-gradient(135deg, var(--brand-a), var(--brand-b));
+  position: fixed; left: 50%; top: 50%; z-index: 51;
+  width: min(520px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto;
+  padding: 10px 10px 18px; border-radius: 32px;
+  /* 不透明底：弹窗里有逐帧动画，不再叠 backdrop-filter（每帧都要重新模糊下方整片区域，是卡顿的主因） */
+  background: var(--surface-solid);
+  box-shadow:
+    0 0 0 0.5px var(--hairline-strong),
+    0 2px 6px rgba(15, 20, 40, .06),
+    0 24px 48px -18px rgba(30, 40, 110, .42),
+    inset 0 1px 0 rgba(255, 255, 255, .5);
+  transform: translate(-50%, -50%);
+  animation: wlIn 760ms cubic-bezier(.2, .9, .22, 1.08) both;
+  scrollbar-width: none;
+}
+.welcome[hidden], .wl-scrim[hidden] { display: none; }
+.welcome.leaving { animation: wlOut 260ms cubic-bezier(.4, 0, 1, 1) both; }
+@keyframes wlIn {
+  0% { opacity: 0; transform: translate(-50%, calc(-50% + 28px)) scale(.94); }
+}
+@keyframes wlOut { to { opacity: 0; transform: translate(-50%, calc(-50% + 10px)) scale(.97); } }
+
+.wl-scrim {
+  position: fixed; inset: 0; z-index: 50;
+  /* 不用 backdrop-filter：实测（DPR 2）遮罩的实时模糊让整页从 61 fps 掉到约 14 fps，引导动画随之掉帧。
+     改为更深的品牌色渐变压暗，视觉上同样把注意力收进弹窗 */
+  background:
+    radial-gradient(70% 60% at 50% 42%, rgba(61, 110, 255, .16), transparent 70%),
+    radial-gradient(130% 100% at 50% 40%, rgba(22, 30, 72, .52), rgba(5, 7, 16, .74));
+  animation: wlFade 520ms var(--ease) both;
+}
+.wl-scrim.leaving { animation: wlFade 260ms var(--ease) reverse both; }
+@keyframes wlFade { from { opacity: 0; } }
+body.wl-open { overflow: hidden; }
+/* 背后的设置页轻微后退、淡出，过渡结束后整个隐藏（visibility: hidden）。
+   实测：即使是静止的半透明页面，合成器每一帧仍要把它和遮罩、弹窗重新混合一遍（低配机上约占每帧合成时间的 1/4），
+   看不见的东西就不让它参与合成。氛围光同理 */
+main.page, .ambient { transition: opacity 520ms var(--ease), transform 700ms var(--ease-out), visibility 0s; transform-origin: 50% 30%; }
+body.wl-open main.page { opacity: 0; transform: scale(.965); visibility: hidden; transition: opacity 520ms var(--ease), transform 700ms var(--ease-out), visibility 0s 700ms; }
+body.wl-open .ambient { opacity: 0; visibility: hidden; transition: opacity 520ms var(--ease), visibility 0s 520ms; }
+body.wl-open .ambient i { animation-play-state: paused; }
+/* 遮罩下面的毛玻璃也停用：被盖住看不见，但每一帧仍要重新模糊 */
+body.wl-open main.page, body.wl-open main.page *, body.wl-open .glass { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+
+/* ---------- 舞台 ---------- */
+.wl-stage {
+  position: relative; aspect-ratio: 560 / 340; border-radius: 24px; overflow: hidden; isolation: isolate;
+  background: linear-gradient(180deg, #F6F8FD, #EDF0F8);
+  box-shadow: inset 0 0 0 0.5px var(--hairline);
+}
+:root[data-theme="dark"] .wl-stage { background: linear-gradient(180deg, #17181E, #121318); }
+@media (prefers-color-scheme: dark) { :root[data-theme="auto"] .wl-stage { background: linear-gradient(180deg, #17181E, #121318); } }
+
+/* 舞台后的柔光：两团品牌色，静止（原先缓慢绕行，但它在动画层下面，每帧都要连同动画一起重新混合；前景本身已在动，背景不再动） */
+.wl-aura { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.wl-aura i {
+  position: absolute; width: 70%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(61, 139, 255, .22), transparent);
+  left: -12%; top: -38%;
+}
+.wl-aura i + i {
+  background: radial-gradient(closest-side, rgba(123, 92, 255, .2), transparent);
+  left: auto; right: -14%; top: auto; bottom: -46%;
+}
+/* 舞台先以 0.3% 不透明度预热（肉眼不可见，合成器照常栅格化，见 welcome.js 的 warmUp），预热完成后淡入开播 */
+.wl-anim {
+  position: absolute; inset: 0; contain: strict; will-change: transform, opacity;
+  opacity: .003; transform: translateY(10px) scale(.985);
+  transition: opacity 600ms var(--ease-out), transform 700ms var(--ease-out);
+}
+.wl-anim.on { opacity: 1; transform: none; }
+.wl-anim svg { display: block; width: 100% !important; height: 100% !important; }
+/* 预热期间把另一页文案与提示文字也画出来，让字形提前进缓存（同样不可见） */
+.welcome.wl-warm .wl-page[aria-hidden="true"] { visibility: visible !important; opacity: .003 !important; transition: none !important; }
+.wl-tip-warm { position: absolute; left: 0; top: 0; white-space: nowrap; opacity: 0; pointer-events: none; }
+.welcome.wl-warm .wl-tip-warm { opacity: .003; }
+
+.wl-close {
+  position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center; color: var(--label-2);
+  background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
+  box-shadow: 0 0 0 0.5px var(--hairline);
+  transition: background var(--d-fast) var(--ease), color var(--d-fast) var(--ease), transform var(--d-slow) var(--spring);
+}
+.wl-close .i { width: 13px; height: 13px; stroke-width: 2; }
+.wl-close:hover { color: var(--label); background: var(--surface-strong); }
+.wl-close:active { transform: scale(.88); transition-duration: var(--d-instant); }
+
+/* ---------- 两段进度：与动画逐帧同步 ---------- */
+.wl-steps {
+  list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;
+  margin: 14px 12px 0; padding: 0;
+}
+.wl-steps li {
+  display: flex; flex-direction: column; gap: 7px; min-width: 0;
+  font-size: var(--t-caption); font-weight: 500; color: var(--label-3); white-space: nowrap;
+  cursor: pointer; transition: color 300ms var(--ease);
+}
+.wl-steps li > span:last-child { overflow: hidden; text-overflow: ellipsis; }
+.wl-steps li:hover { color: var(--label-2); }
+.wl-steps li:hover .wl-bar { background: color-mix(in srgb, var(--label) 14%, transparent); }
+.wl-steps li.on, .wl-steps li.done { color: var(--label); }
+.wl-bar { position: relative; height: 3px; border-radius: 3px; overflow: hidden; background: var(--fill-press); }
+.wl-bar i {
+  position: absolute; inset: 0; border-radius: inherit; background: var(--brand);
+  transform-origin: left; transform: scaleX(var(--p, 0));
+}
+.wl-step-keys { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.wl-step-keys .kbd kbd { min-width: 17px; height: 17px; padding: 0 4px; font-size: 10px; border-radius: 4.5px; }
+.wl-steps li.on .wl-step-keys kbd { color: var(--brand-m); box-shadow: inset 0 0 0 0.5px color-mix(in srgb, var(--brand-m) 40%, transparent), 0 1px 0 color-mix(in srgb, var(--brand-m) 30%, transparent); }
+
+/* ---------- 两段文案：快捷键 · 鼠标手势（叠在同一格里，高度取两者较高者，切换时不跳动） ---------- */
+.wl-pages { display: grid; margin: 22px 24px 0; animation: wlUp 700ms 260ms var(--ease-out) both; }
+.wl-page {
+  grid-area: 1 / 1; min-width: 0;
+  /* 只过渡 opacity 与 transform（合成器完成，不重绘文字）。原先的 filter: blur 切换会让每段开头的几十帧逐帧重新栅格化文字，
+     恰好压在动画最忙的入场时刻，是「第二幕一开始卡、循环后第一幕也卡」的原因之一 */
+  transition: opacity 420ms var(--ease), transform 560ms var(--ease-out), visibility 0s;
+}
+.wl-pages[data-page="0"] .wl-page[data-page="1"], .wl-pages[data-page="1"] .wl-page[data-page="0"] {
+  opacity: 0; transform: translateY(6px); visibility: hidden;
+  transition: opacity 220ms var(--ease), transform 220ms var(--ease), visibility 0s 220ms;
+}
+.wl-step-z { display: inline-flex; align-items: center; gap: 5px; }
+.wl-steps li.on .wl-step-z { color: var(--brand-m); }
+
+/* ---------- 快捷键与鼠标手势：同一组里的两行，始终都在 ----------
+   动画讲到哪一种方式，哪一行就被轻轻点亮；另一行照常可用，不会被换掉 */
+.wl-group {
+  position: relative; margin: 20px 14px 0; border-radius: 18px; overflow: hidden;
+  background: var(--fill); box-shadow: inset 0 0 0 0.5px var(--hairline);
+  animation: wlUp 700ms 340ms var(--ease-out) both;
+}
+.wl-row { position: relative; display: flex; align-items: center; gap: 12px; padding: 12px 14px; min-height: 60px; }
+.wl-row + .wl-row::after {   /* 分隔线：从文字起始处开始，和系统设置的分组列表一致 */
+  content: ""; position: absolute; top: 0; left: 60px; right: 0; height: 0.5px; background: var(--hairline);
+}
+.wl-row::before {           /* 点亮：品牌色的一层薄光 */
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--brand-a) 9%, transparent), color-mix(in srgb, var(--brand-b) 6%, transparent) 70%, transparent);
+  transition: opacity 520ms var(--ease);
+}
+.wl-group[data-focus="key"] #wl-key::before, .wl-group[data-focus="gesture"] #wl-gesture::before { opacity: 1; }
+.wl-row > * { position: relative; }
+.wl-row .wl-key-glyph { transition: opacity 520ms var(--ease), transform 620ms var(--spring-soft); }
+.wl-group[data-focus="key"] #wl-gesture .wl-key-glyph, .wl-group[data-focus="gesture"] #wl-key .wl-key-glyph { opacity: .45; }
+.wl-group[data-focus="gesture"] #wl-gesture .wl-key-glyph { animation: glyphNod 720ms var(--spring-soft) both; }
+@keyframes glyphNod { 0% { transform: scale(1); } 40% { transform: scale(1.12) rotate(-6deg); } 100% { transform: scale(1); } }
+
+.wl-gesture { cursor: default; }
+.wl-gesture .switch { flex: none; }
+.welcome.kb .wl-gesture:focus-within { box-shadow: inset 0 0 0 2px var(--brand-m); border-radius: 0 0 18px 18px; }
+
+.wl-tip.swap > * { animation: wlTipSwap 520ms var(--ease-out) both; }
+@keyframes wlTipSwap { from { opacity: 0; transform: translateY(4px); } }
+
+/* ---------- 文案 ---------- */
+.wl-copy { text-align: center; }
+.wl-copy h2 {
+  font: 700 24px/1.2 var(--font-display); letter-spacing: -0.03em;
+  background: linear-gradient(180deg, var(--label), color-mix(in srgb, var(--label) 72%, transparent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.wl-copy p { margin: 8px auto 0; max-width: 360px; font-size: var(--t-callout); line-height: 1.5; color: var(--label-2); text-wrap: balance; }
+@keyframes wlUp { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- 快捷键状态 ---------- */
+.wl-key-glyph {
+  width: 34px; height: 34px; flex: none; border-radius: 10px; display: grid; place-items: center; color: #fff;
+  background: var(--brand); box-shadow: 0 6px 14px -6px rgba(80, 100, 255, .6), inset 0 1px 0 rgba(255, 255, 255, .25);
+}
+.wl-key-glyph .i { width: 18px; height: 18px; }
+.wl-key-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.wl-key-text b { font-size: var(--t-callout); font-weight: 600; letter-spacing: -0.01em; }
+.wl-key-text small { font-size: var(--t-footnote); color: var(--label-3); }
+.wl-key .kbd.big kbd { min-width: 30px; height: 30px; padding: 0 9px; font-size: var(--t-callout); border-radius: 8px; }
+.wl-key.changed .kbd kbd { animation: keyPop 620ms cubic-bezier(.34, 1.56, .64, 1) both; }
+.wl-key.changed .kbd kbd:nth-child(2) { animation-delay: 60ms; }
+.wl-key.changed .kbd kbd:nth-child(3) { animation-delay: 120ms; }
+@keyframes keyPop { 0% { transform: translateY(3px) scale(.86); } 50% { transform: translateY(-1px) scale(1.06); } }
+
+.wl-state {
+  flex: none; height: 26px; padding: 0 10px 0 8px; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 5px; font-size: var(--t-caption); font-weight: 600;
+}
+.wl-key.ready .wl-state { color: #1E9E4A; background: rgba(52, 199, 89, .14); }
+.wl-key.unset .wl-state { color: #C46A00; background: rgba(255, 159, 10, .16); }
+:root[data-theme="dark"] .wl-key.ready .wl-state { color: #4CD97B; }
+:root[data-theme="dark"] .wl-key.unset .wl-state { color: #FFB340; }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] .wl-key.ready .wl-state { color: #4CD97B; }
+  :root[data-theme="auto"] .wl-key.unset .wl-state { color: #FFB340; }
+}
+.wl-tick { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wl-key.unset .wl-tick path { d: path("M8 4.2v4.6M8 11.6h.01"); }
+.wl-key.ready .wl-tick path { stroke-dasharray: 14; stroke-dashoffset: 0; }
+.wl-key.ready.changed .wl-tick path { animation: tickDraw 520ms 120ms var(--ease-out) both; }
+@keyframes tickDraw { from { stroke-dashoffset: 14; } }
+
+/* ---------- 操作 ---------- */
+.wl-actions { display: grid; grid-template-columns: 1fr 1.35fr; gap: 10px; margin: 16px 14px 0; animation: wlUp 700ms 400ms var(--ease-out) both; }
+.wl-btn {
+  position: relative; height: 44px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: var(--t-body); font-weight: 600; letter-spacing: -0.01em; overflow: hidden;
+  transition: transform var(--d-slow) var(--spring), filter var(--d-fast) var(--ease), background var(--d-fast) var(--ease), box-shadow var(--d-base) var(--ease);
+}
+.wl-btn:active { transform: scale(.965); transition-duration: var(--d-instant); }
+.wl-btn.ghost { color: var(--label); background: var(--fill); box-shadow: inset 0 0 0 0.5px var(--hairline); }
+.wl-btn.ghost:hover { background: var(--fill-press); }
+.wl-btn.primary {
+  color: #fff; background: var(--brand);
+  box-shadow: 0 10px 24px -10px rgba(80, 100, 255, .7), inset 0 1px 0 rgba(255, 255, 255, .28), inset 0 -1px 0 rgba(0, 0, 40, .12);
+}
+.wl-btn.primary:hover { filter: brightness(1.07) saturate(1.05); box-shadow: 0 14px 30px -10px rgba(80, 100, 255, .8), inset 0 1px 0 rgba(255, 255, 255, .3); }
+.welcome.kb .wl-btn.primary:focus-visible { box-shadow: 0 0 0 3px var(--surface-strong), 0 0 0 5.5px var(--brand-m); }
+/* 主按钮上的一道高光，缓慢扫过 */
+.wl-btn.primary::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .28) 50%, transparent 65%);
+  transform: translateX(-120%); animation: sheen 3.6s 1.4s var(--ease) 2;   /* 扫两次就停：常驻的高光每次掠过都会把整张卡片拖进重绘范围 */
+}
+@keyframes sheen { 0% { transform: translateX(-120%); } 35%, 100% { transform: translateX(120%); } }
+.wl-btn.primary .i { display: none; width: 13px; height: 13px; stroke-width: 2; opacity: .9; }
+.wl-btn.primary.external .i { display: block; }
+
+.wl-tip {
+  position: relative; display: flex; align-items: center; justify-content: center; gap: 5px; margin: 14px 16px 0;
+  font-size: var(--t-caption); color: var(--label-3); animation: wlUp 700ms 460ms var(--ease-out) both;
+}
+.wl-tip .i { flex: none; stroke-width: 1.8; }
+
+/* 设置页「快捷键」一行里的重播按钮 */
+.icon-pill {
+  width: 30px; height: 30px; flex: none; border-radius: 50%; display: grid; place-items: center;
+  color: var(--accent); background: var(--accent-soft);
+  transition: background var(--d-fast) var(--ease), transform var(--d-slow) var(--spring);
+}
+.icon-pill .i { width: 12px; height: 12px; margin-left: 1px; stroke-width: 1.8; }
+.icon-pill:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.icon-pill:active { transform: scale(.9); transition-duration: var(--d-instant); }
+
+@media (max-height: 700px) { .wl-tip { display: none; } .wl-pages { margin-top: 16px; } .wl-group { margin-top: 14px; } }
+@media (prefers-reduced-motion: reduce) {
+  .welcome, .wl-scrim, .wl-pages, .wl-group, .wl-actions, .wl-tip { animation: none !important; }
+  .wl-btn.primary::after { animation: none !important; }
+}
+/* 打开时焦点在主按钮上，但只有用键盘时才画焦点环 */
+.welcome:not(.kb) .wl-btn.primary:focus-visible { box-shadow: 0 10px 24px -10px rgba(80, 100, 255, .7), inset 0 1px 0 rgba(255, 255, 255, .28), inset 0 -1px 0 rgba(0, 0, 40, .12); }
+.welcome:not(.kb) .wl-btn.ghost:focus-visible, .welcome:not(.kb) .wl-close:focus-visible { box-shadow: inset 0 0 0 0.5px var(--hairline); }

@@ -1,0 +1,651 @@
+{
+  "extName": {
+    "message": "TabAgain"
+  },
+  "extShortName": {
+    "message": "TabAgain"
+  },
+  "extSlogan": {
+    "message": "Bring closed tabs back."
+  },
+  "extDescription": {
+    "message": "Bring closed tabs back.",
+    "description": "Chrome Web Store / AMO 简介，≤132 字符"
+  },
+  "actionTitle": {
+    "message": "TabAgain"
+  },
+  "cmdRestoreLast": {
+    "message": "Reopen Last Closed Tab"
+  },
+  "optDocTitle": {
+    "message": "TabAgain Settings"
+  },
+  "historyDocTitle": {
+    "message": "History · TabAgain"
+  },
+  "searchPlaceholder": {
+    "message": "Search titles and URLs"
+  },
+  "searchPlaceholderLong": {
+    "message": "Search titles and URLs, or try site:, today, yesterday"
+  },
+  "clearSearch": {
+    "message": "Clear Search"
+  },
+  "noResultTitle": {
+    "message": "No Results"
+  },
+  "noResultHint": {
+    "message": "Try another word or site:domain"
+  },
+  "resultCount": {
+    "message": "$1 results"
+  },
+  "resultCountOne": {
+    "message": "$1 result"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "restore": {
+    "message": "Reopen"
+  },
+  "restoreWindow": {
+    "message": "Reopen Window"
+  },
+  "openInBackground": {
+    "message": "Open in Background"
+  },
+  "remove": {
+    "message": "Remove"
+  },
+  "delete": {
+    "message": "Delete"
+  },
+  "clear": {
+    "message": "Clear"
+  },
+  "undo": {
+    "message": "Undo"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "add": {
+    "message": "Add"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "expand": {
+    "message": "Expand"
+  },
+  "removed": {
+    "message": "Removed"
+  },
+  "saved": {
+    "message": "Saved"
+  },
+  "restoreFailed": {
+    "message": "Can’t Open This Page"
+  },
+  "lastClosed": {
+    "message": "Reopen"
+  },
+  "noShortcut": {
+    "message": "Set Shortcut"
+  },
+  "history": {
+    "message": "History"
+  },
+  "historyTitle": {
+    "message": "History"
+  },
+  "viewAll": {
+    "message": "All $1"
+  },
+  "countRecords": {
+    "message": "$1 records"
+  },
+  "countRecordsOne": {
+    "message": "$1 record"
+  },
+  "closedTabsLabel": {
+    "message": "Closed Tabs"
+  },
+  "emptyTitle": {
+    "message": "No Closed Tabs"
+  },
+  "emptyHint": {
+    "message": "Tabs you close appear here."
+  },
+  "groupJustNow": {
+    "message": "Just Now"
+  },
+  "groupToday": {
+    "message": "Today"
+  },
+  "groupYesterday": {
+    "message": "Yesterday"
+  },
+  "lessThanMinute": {
+    "message": "Just now"
+  },
+  "minutesAgo": {
+    "message": "$1 min ago"
+  },
+  "windowTag": {
+    "message": "Window"
+  },
+  "windowTitle": {
+    "message": "$1 Tabs"
+  },
+  "windowTitleOne": {
+    "message": "$1 Tab"
+  },
+  "listSeparator": {
+    "message": ", "
+  },
+  "andMore": {
+    "message": "+$1 more"
+  },
+  "tipFull": {
+    "message": "Restores with Back and Forward history"
+  },
+  "tipUrlOnly": {
+    "message": "Reloads from the URL"
+  },
+  "excludeSite": {
+    "message": "Don’t Record $1"
+  },
+  "excludedToast": {
+    "message": "$1 won’t be recorded. $2 removed."
+  },
+  "selectGroup": {
+    "message": "Select All"
+  },
+  "deselectGroup": {
+    "message": "Deselect All"
+  },
+  "restoreGroup": {
+    "message": "Reopen All"
+  },
+  "select": {
+    "message": "Select"
+  },
+  "deselect": {
+    "message": "Deselect"
+  },
+  "selectedCount": {
+    "message": "$1 Selected"
+  },
+  "restoreSelected": {
+    "message": "Reopen $1"
+  },
+  "deleteSelected": {
+    "message": "Delete $1"
+  },
+  "restoredCount": {
+    "message": "$1 tabs reopened"
+  },
+  "restoredCountOne": {
+    "message": "$1 tab reopened"
+  },
+  "deletedCount": {
+    "message": "$1 deleted"
+  },
+  "restoreManyTitle": {
+    "message": "Open $1 Tabs?"
+  },
+  "restoreManyBody": {
+    "message": "They’ll open in a new window."
+  },
+  "sitesLabel": {
+    "message": "Filter by Site"
+  },
+  "sitesAll": {
+    "message": "All Sites"
+  },
+  "sitesCount": {
+    "message": "$1"
+  },
+  "sitesSearch": {
+    "message": "Search Sites"
+  },
+  "sitesNone": {
+    "message": "No Matching Sites"
+  },
+  "sitesRefine": {
+    "message": "$1 more. Type to narrow the list."
+  },
+  "siteRecords": {
+    "message": "$1 · $2"
+  },
+  "deleteSite": {
+    "message": "Delete Records from This Site"
+  },
+  "deleteSiteTitle": {
+    "message": "Delete Records from $1?"
+  },
+  "deleteSiteBody": {
+    "message": "$1 records will be deleted. You can’t undo this action."
+  },
+  "deleteSiteBodyOne": {
+    "message": "$1 record will be deleted. You can’t undo this action."
+  },
+  "clearRangeTitle": {
+    "message": "Clear Records"
+  },
+  "clearRangeBody": {
+    "message": "Choose a time range. You can’t undo this action."
+  },
+  "rangeHour": {
+    "message": "Last Hour"
+  },
+  "rangeToday": {
+    "message": "Today"
+  },
+  "range7d": {
+    "message": "Last 7 Days"
+  },
+  "rangeAll": {
+    "message": "All"
+  },
+  "pagination": {
+    "message": "Pages"
+  },
+  "pagePrev": {
+    "message": "Previous Page"
+  },
+  "pageNext": {
+    "message": "Next Page"
+  },
+  "pageJump": {
+    "message": "Go To"
+  },
+  "pageRange": {
+    "message": "$1–$2 of $3"
+  },
+  "datePick": {
+    "message": "Go to Date"
+  },
+  "monthPrev": {
+    "message": "Previous Month"
+  },
+  "monthNext": {
+    "message": "Next Month"
+  },
+  "today": {
+    "message": "Today"
+  },
+  "dateDays": {
+    "message": "Records on $1 days"
+  },
+  "dateDaysOne": {
+    "message": "Records on $1 day"
+  },
+  "dateNone": {
+    "message": "No records this month"
+  },
+  "secAppearance": {
+    "message": "Appearance"
+  },
+  "optTheme": {
+    "message": "Theme"
+  },
+  "themeAuto": {
+    "message": "Auto"
+  },
+  "themeLight": {
+    "message": "Light"
+  },
+  "themeDark": {
+    "message": "Dark"
+  },
+  "optBadge": {
+    "message": "Show Count in Toolbar"
+  },
+  "secShortcut": {
+    "message": "Keyboard Shortcut"
+  },
+  "optShortcut": {
+    "message": "Reopen Last Closed Tab"
+  },
+  "optShortcutHint": {
+    "message": "Works on any webpage"
+  },
+  "optShortcutEdit": {
+    "message": "Change"
+  },
+  "optShortcutUnset": {
+    "message": "Not Set"
+  },
+  "secRestore": {
+    "message": "Reopening"
+  },
+  "optSession": {
+    "message": "Full Restore"
+  },
+  "optSessionHint": {
+    "message": "The 25 most recent tabs reopen through the browser session, with Back and Forward history."
+  },
+  "optPosition": {
+    "message": "Open In"
+  },
+  "optPositionHint": {
+    "message": "Used when full restore isn’t available"
+  },
+  "posOriginal": {
+    "message": "Original Position"
+  },
+  "posEnd": {
+    "message": "At the End"
+  },
+  "secHistory": {
+    "message": "Records"
+  },
+  "optLimit": {
+    "message": "Keep Up To"
+  },
+  "optLimitHint": {
+    "message": "The oldest records are removed daily."
+  },
+  "optRetention": {
+    "message": "Keep For"
+  },
+  "optRetentionHint": {
+    "message": "Expired records are removed daily."
+  },
+  "ret30": {
+    "message": "30 Days"
+  },
+  "ret365": {
+    "message": "1 Year"
+  },
+  "retForever": {
+    "message": "Forever"
+  },
+  "optDedupe": {
+    "message": "Merge Duplicates"
+  },
+  "optDedupeHint": {
+    "message": "Keep only the latest entry for each URL"
+  },
+  "optKeep": {
+    "message": "Keep After Quitting"
+  },
+  "optKeepHint": {
+    "message": "Records remain after you quit the browser."
+  },
+  "secList": {
+    "message": "List"
+  },
+  "optPageSize": {
+    "message": "Items per Page"
+  },
+  "optPageSizeHint": {
+    "message": "Press [ or ] to turn pages"
+  },
+  "optChips": {
+    "message": "Site Filter Bar"
+  },
+  "optChipsHint": {
+    "message": "Show frequent sites below the search field"
+  },
+  "secPrivacy": {
+    "message": "Privacy"
+  },
+  "optExclude": {
+    "message": "Never Record"
+  },
+  "optExcludeHint": {
+    "message": "Includes subdomains. Existing records are removed."
+  },
+  "optExcludePlaceholder": {
+    "message": "e.g. mail.google.com"
+  },
+  "optExcludeEmpty": {
+    "message": "None"
+  },
+  "secData": {
+    "message": "Data"
+  },
+  "optOpenHistory": {
+    "message": "History"
+  },
+  "optStoredHint": {
+    "message": "Search, filter, and manage in bulk"
+  },
+  "optUsage": {
+    "message": "Storage Used"
+  },
+  "optClearRange": {
+    "message": "Clear Records…"
+  },
+  "optClearRangeHint": {
+    "message": "Clear by time range. To clear one site, filter it in History."
+  },
+  "optFooter": {
+    "message": "All data stays on this device."
+  },
+  "secGesture": {
+    "message": "Mouse Gestures"
+  },
+  "optGesture": {
+    "message": "Mouse Gestures"
+  },
+  "gestureHintWin": {
+    "message": "Hold the right mouse button and $1 to reopen the last closed tab."
+  },
+  "gestureHintMac": {
+    "message": "Hold Option and $1 to reopen the last closed tab."
+  },
+  "gestureHintLinux": {
+    "message": "Hold Alt and $1 to reopen the last closed tab."
+  },
+  "gestureShapeZ": {
+    "message": "draw a Z"
+  },
+  "gestureShapeUl": {
+    "message": "drag up, then left"
+  },
+  "gestureShapeDr": {
+    "message": "drag down, then right"
+  },
+  "gestureShapeLu": {
+    "message": "drag left, then up"
+  },
+  "gestureShapeRl": {
+    "message": "drag right, then back left"
+  },
+  "gesturePermission": {
+    "message": "Used only to recognize gestures, never to read page content."
+  },
+  "gestureDenied": {
+    "message": "Mouse gestures need website access to turn on."
+  },
+  "gestureOn": {
+    "message": "Mouse Gestures On"
+  },
+  "optGesturePreset": {
+    "message": "Gesture"
+  },
+  "presetZ": {
+    "message": "Z Shape"
+  },
+  "presetZSub": {
+    "message": "Default"
+  },
+  "presetUl": {
+    "message": "Up, Left"
+  },
+  "presetUlSub": {
+    "message": "Quicker"
+  },
+  "presetDr": {
+    "message": "Down, Right"
+  },
+  "presetDrSub": {
+    "message": "Alternate"
+  },
+  "presetLu": {
+    "message": "Left, Up"
+  },
+  "presetLuSub": {
+    "message": "Common"
+  },
+  "presetRl": {
+    "message": "Right, Left"
+  },
+  "presetRlSub": {
+    "message": "Flick Back"
+  },
+  "optGestureTry": {
+    "message": "Try It"
+  },
+  "gesturePadHint": {
+    "message": "Hold the mouse button here and $1"
+  },
+  "gesturePadDone": {
+    "message": "That’s it. Do the same on any webpage."
+  },
+  "gesturePadCombo": {
+    "message": "Draw $1 in a row to reopen $1 tabs."
+  },
+  "gesturePadTip": {
+    "message": "Tip: Draw two Zs within a second to reopen two tabs."
+  },
+  "gestureTipSmall": {
+    "message": "Draw it a little larger"
+  },
+  "gestureTipFirst": {
+    "message": "Start with a stroke to the right"
+  },
+  "gestureTipDiagonal": {
+    "message": "Angle the middle stroke down and to the left"
+  },
+  "gestureTipLast": {
+    "message": "Finish with a stroke to the right"
+  },
+  "gestureTipSlow": {
+    "message": "Draw it a little faster"
+  },
+  "gestureTipUp": {
+    "message": "Start by dragging up"
+  },
+  "gestureTipDown": {
+    "message": "Start by dragging down"
+  },
+  "gestureTipLeft": {
+    "message": "Then drag left"
+  },
+  "gestureTipRight": {
+    "message": "Then drag right"
+  },
+  "gestureTipStartLeft": {
+    "message": "Start by dragging left"
+  },
+  "gestureTipThenUp": {
+    "message": "Then drag up"
+  },
+  "gestureTipStartRight": {
+    "message": "Start by dragging right"
+  },
+  "gestureTipBack": {
+    "message": "Then drag back to the left"
+  },
+  "gestureUnknown": {
+    "message": "Not Recognized"
+  },
+  "gestureDone": {
+    "message": "Reopened"
+  },
+  "gestureRecognized": {
+    "message": "Recognized"
+  },
+  "optGestureTrail": {
+    "message": "Show Trail"
+  },
+  "optGestureExclude": {
+    "message": "Sites Without Gestures"
+  },
+  "optGestureExcludeReset": {
+    "message": "Restore Defaults"
+  },
+  "gxMapsGoogle": {
+    "message": "Google Maps"
+  },
+  "gxMapsBaidu": {
+    "message": "Baidu Maps"
+  },
+  "gxMapsAmap": {
+    "message": "Amap"
+  },
+  "gxMapsTencent": {
+    "message": "Tencent Maps"
+  },
+  "gxMapsApple": {
+    "message": "Apple Maps"
+  },
+  "gxMapsBing": {
+    "message": "Bing Maps"
+  },
+  "gxJsDesign": {
+    "message": "JS Design"
+  },
+  "optGestureExcludeHint": {
+    "message": "For sites where you drag with the mouse, like maps and design tools."
+  },
+  "welcomeReplay": {
+    "message": "Watch Introduction"
+  },
+  "welcomeStep2": {
+    "message": "Press"
+  },
+  "welcomeStep3": {
+    "message": "to Reopen"
+  },
+  "welcomeStep4": {
+    "message": "Or Draw a Z"
+  },
+  "welcomeGestureTitle": {
+    "message": "Or just draw a Z."
+  },
+  "welcomeTitle": {
+    "message": "Closed tabs, back in a keystroke."
+  },
+  "welcomeBody": {
+    "message": "Tabs return to where they were, along with their Back and Forward history."
+  },
+  "welcomeShortcut": {
+    "message": "Keyboard Shortcut"
+  },
+  "welcomeReadyHint": {
+    "message": "Works on any webpage"
+  },
+  "welcomeUnsetHint": {
+    "message": "The default shortcut is in use. Choose another."
+  },
+  "welcomeReady": {
+    "message": "Ready"
+  },
+  "welcomeUnset": {
+    "message": "Not Set"
+  },
+  "welcomeStart": {
+    "message": "Get Started"
+  },
+  "welcomeSet": {
+    "message": "Set Shortcut"
+  },
+  "welcomeChange": {
+    "message": "Change Shortcut"
+  },
+  "welcomeLater": {
+    "message": "Not Now"
+  },
+  "welcomePin": {
+    "message": "To keep TabAgain at hand, pin it from the Extensions button in the toolbar."
+  }
+}

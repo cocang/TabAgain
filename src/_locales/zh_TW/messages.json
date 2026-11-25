@@ -1,0 +1,651 @@
+{
+  "extName": {
+    "message": "TabAgain"
+  },
+  "extShortName": {
+    "message": "TabAgain"
+  },
+  "extSlogan": {
+    "message": "讓關閉的分頁，再次回來"
+  },
+  "extDescription": {
+    "message": "讓關閉的分頁，再次回來",
+    "description": "Chrome Web Store / AMO 简介，≤132 字符"
+  },
+  "actionTitle": {
+    "message": "TabAgain"
+  },
+  "cmdRestoreLast": {
+    "message": "重新開啟上次關閉的分頁"
+  },
+  "optDocTitle": {
+    "message": "TabAgain 設定"
+  },
+  "historyDocTitle": {
+    "message": "歷史記錄 · TabAgain"
+  },
+  "searchPlaceholder": {
+    "message": "搜尋標題或網址"
+  },
+  "searchPlaceholderLong": {
+    "message": "搜尋標題或網址，也可使用 site:、昨天、本週"
+  },
+  "clearSearch": {
+    "message": "清除搜尋"
+  },
+  "noResultTitle": {
+    "message": "沒有結果"
+  },
+  "noResultHint": {
+    "message": "試試其他關鍵字或 site:網域"
+  },
+  "resultCount": {
+    "message": "$1 個結果"
+  },
+  "resultCountOne": {
+    "message": "$1 個結果"
+  },
+  "settings": {
+    "message": "設定"
+  },
+  "restore": {
+    "message": "重新開啟"
+  },
+  "restoreWindow": {
+    "message": "重新開啟視窗"
+  },
+  "openInBackground": {
+    "message": "在背景開啟"
+  },
+  "remove": {
+    "message": "移除"
+  },
+  "delete": {
+    "message": "刪除"
+  },
+  "clear": {
+    "message": "清除"
+  },
+  "undo": {
+    "message": "還原"
+  },
+  "cancel": {
+    "message": "取消"
+  },
+  "add": {
+    "message": "加入"
+  },
+  "close": {
+    "message": "關閉"
+  },
+  "expand": {
+    "message": "展開"
+  },
+  "removed": {
+    "message": "已移除"
+  },
+  "saved": {
+    "message": "已儲存"
+  },
+  "restoreFailed": {
+    "message": "無法開啟此頁面"
+  },
+  "lastClosed": {
+    "message": "重新開啟"
+  },
+  "noShortcut": {
+    "message": "設定快速鍵"
+  },
+  "history": {
+    "message": "歷史記錄"
+  },
+  "historyTitle": {
+    "message": "歷史記錄"
+  },
+  "viewAll": {
+    "message": "全部 $1 筆"
+  },
+  "countRecords": {
+    "message": "$1 筆記錄"
+  },
+  "countRecordsOne": {
+    "message": "$1 筆記錄"
+  },
+  "closedTabsLabel": {
+    "message": "已關閉的分頁"
+  },
+  "emptyTitle": {
+    "message": "沒有關閉的分頁"
+  },
+  "emptyHint": {
+    "message": "關閉的分頁會顯示在這裡。"
+  },
+  "groupJustNow": {
+    "message": "剛剛"
+  },
+  "groupToday": {
+    "message": "今天"
+  },
+  "groupYesterday": {
+    "message": "昨天"
+  },
+  "lessThanMinute": {
+    "message": "剛剛"
+  },
+  "minutesAgo": {
+    "message": "$1 分鐘前"
+  },
+  "windowTag": {
+    "message": "視窗"
+  },
+  "windowTitle": {
+    "message": "$1 個分頁"
+  },
+  "windowTitleOne": {
+    "message": "$1 個分頁"
+  },
+  "listSeparator": {
+    "message": "、"
+  },
+  "andMore": {
+    "message": "等 $1 個"
+  },
+  "tipFull": {
+    "message": "可完整恢復，包括上一頁與下一頁記錄"
+  },
+  "tipUrlOnly": {
+    "message": "將重新載入網址"
+  },
+  "excludeSite": {
+    "message": "不再記錄 $1"
+  },
+  "excludedToast": {
+    "message": "已停止記錄 $1，移除了 $2 筆"
+  },
+  "selectGroup": {
+    "message": "全選"
+  },
+  "deselectGroup": {
+    "message": "取消全選"
+  },
+  "restoreGroup": {
+    "message": "全部重新開啟"
+  },
+  "select": {
+    "message": "選取"
+  },
+  "deselect": {
+    "message": "取消選取"
+  },
+  "selectedCount": {
+    "message": "已選取 $1 項"
+  },
+  "restoreSelected": {
+    "message": "重新開啟 $1 項"
+  },
+  "deleteSelected": {
+    "message": "刪除 $1 項"
+  },
+  "restoredCount": {
+    "message": "已重新開啟 $1 個分頁"
+  },
+  "restoredCountOne": {
+    "message": "已重新開啟 $1 個分頁"
+  },
+  "deletedCount": {
+    "message": "已刪除 $1 筆"
+  },
+  "restoreManyTitle": {
+    "message": "開啟 $1 個分頁？"
+  },
+  "restoreManyBody": {
+    "message": "它們將在新視窗中開啟。"
+  },
+  "sitesLabel": {
+    "message": "依網站篩選"
+  },
+  "sitesAll": {
+    "message": "所有網站"
+  },
+  "sitesCount": {
+    "message": "$1 個"
+  },
+  "sitesSearch": {
+    "message": "搜尋網站"
+  },
+  "sitesNone": {
+    "message": "沒有相符的網站"
+  },
+  "sitesRefine": {
+    "message": "還有 $1 個，輸入關鍵字縮小範圍"
+  },
+  "siteRecords": {
+    "message": "$1 · $2 筆"
+  },
+  "deleteSite": {
+    "message": "刪除此網站的記錄"
+  },
+  "deleteSiteTitle": {
+    "message": "刪除 $1 的記錄？"
+  },
+  "deleteSiteBody": {
+    "message": "將刪除 $1 筆記錄。此動作無法還原。"
+  },
+  "deleteSiteBodyOne": {
+    "message": "將刪除 $1 筆記錄。此動作無法還原。"
+  },
+  "clearRangeTitle": {
+    "message": "清除記錄"
+  },
+  "clearRangeBody": {
+    "message": "選擇時間範圍。此動作無法還原。"
+  },
+  "rangeHour": {
+    "message": "過去 1 小時"
+  },
+  "rangeToday": {
+    "message": "今天"
+  },
+  "range7d": {
+    "message": "過去 7 天"
+  },
+  "rangeAll": {
+    "message": "全部"
+  },
+  "pagination": {
+    "message": "分頁"
+  },
+  "pagePrev": {
+    "message": "上一頁"
+  },
+  "pageNext": {
+    "message": "下一頁"
+  },
+  "pageJump": {
+    "message": "前往"
+  },
+  "pageRange": {
+    "message": "第 $1–$2 筆，共 $3 筆"
+  },
+  "datePick": {
+    "message": "依日期尋找"
+  },
+  "monthPrev": {
+    "message": "上個月"
+  },
+  "monthNext": {
+    "message": "下個月"
+  },
+  "today": {
+    "message": "今天"
+  },
+  "dateDays": {
+    "message": "$1 天有記錄"
+  },
+  "dateDaysOne": {
+    "message": "$1 天有記錄"
+  },
+  "dateNone": {
+    "message": "本月無記錄"
+  },
+  "secAppearance": {
+    "message": "外觀"
+  },
+  "optTheme": {
+    "message": "主題"
+  },
+  "themeAuto": {
+    "message": "自動"
+  },
+  "themeLight": {
+    "message": "淺色"
+  },
+  "themeDark": {
+    "message": "深色"
+  },
+  "optBadge": {
+    "message": "在工具列顯示數量"
+  },
+  "secShortcut": {
+    "message": "鍵盤快速鍵"
+  },
+  "optShortcut": {
+    "message": "重新開啟上次關閉的分頁"
+  },
+  "optShortcutHint": {
+    "message": "在任何網頁上皆可使用"
+  },
+  "optShortcutEdit": {
+    "message": "更改"
+  },
+  "optShortcutUnset": {
+    "message": "未設定"
+  },
+  "secRestore": {
+    "message": "重新開啟"
+  },
+  "optSession": {
+    "message": "完整恢復"
+  },
+  "optSessionHint": {
+    "message": "最近 25 個分頁透過瀏覽器工作階段恢復，保留上一頁與下一頁記錄。"
+  },
+  "optPosition": {
+    "message": "開啟位置"
+  },
+  "optPositionHint": {
+    "message": "無法完整恢復時使用"
+  },
+  "posOriginal": {
+    "message": "原位置"
+  },
+  "posEnd": {
+    "message": "最後"
+  },
+  "secHistory": {
+    "message": "記錄"
+  },
+  "optLimit": {
+    "message": "最多保留"
+  },
+  "optLimitHint": {
+    "message": "超過後，每天清除最早的記錄。"
+  },
+  "optRetention": {
+    "message": "保留時間"
+  },
+  "optRetentionHint": {
+    "message": "過期的記錄每天清除。"
+  },
+  "ret30": {
+    "message": "30 天"
+  },
+  "ret365": {
+    "message": "1 年"
+  },
+  "retForever": {
+    "message": "永久"
+  },
+  "optDedupe": {
+    "message": "合併相同網址"
+  },
+  "optDedupeHint": {
+    "message": "每個網址只保留最近一筆"
+  },
+  "optKeep": {
+    "message": "重新啟動後保留"
+  },
+  "optKeepHint": {
+    "message": "結束瀏覽器後，記錄依然保留。"
+  },
+  "secList": {
+    "message": "列表"
+  },
+  "optPageSize": {
+    "message": "每頁顯示"
+  },
+  "optPageSizeHint": {
+    "message": "按 [ 或 ] 翻頁"
+  },
+  "optChips": {
+    "message": "網站篩選列"
+  },
+  "optChipsHint": {
+    "message": "在搜尋欄下方顯示常用網站"
+  },
+  "secPrivacy": {
+    "message": "隱私"
+  },
+  "optExclude": {
+    "message": "不記錄的網站"
+  },
+  "optExcludeHint": {
+    "message": "包括其子網域。加入後會移除現有記錄。"
+  },
+  "optExcludePlaceholder": {
+    "message": "例如 mail.google.com"
+  },
+  "optExcludeEmpty": {
+    "message": "無"
+  },
+  "secData": {
+    "message": "資料"
+  },
+  "optOpenHistory": {
+    "message": "歷史記錄"
+  },
+  "optStoredHint": {
+    "message": "搜尋、篩選和批次管理"
+  },
+  "optUsage": {
+    "message": "已使用空間"
+  },
+  "optClearRange": {
+    "message": "清除記錄…"
+  },
+  "optClearRangeHint": {
+    "message": "依時間範圍清除。若要清除某個網站，請在歷史記錄中篩選。"
+  },
+  "optFooter": {
+    "message": "所有資料僅儲存在此裝置上。"
+  },
+  "secGesture": {
+    "message": "滑鼠手勢"
+  },
+  "optGesture": {
+    "message": "滑鼠手勢"
+  },
+  "gestureHintWin": {
+    "message": "按住右鍵$1，重新開啟上次關閉的分頁。"
+  },
+  "gestureHintMac": {
+    "message": "按住 ⌥ 鍵，用滑鼠$1，重新開啟上次關閉的分頁。"
+  },
+  "gestureHintLinux": {
+    "message": "按住 Alt 鍵，用滑鼠$1，重新開啟上次關閉的分頁。"
+  },
+  "gestureShapeZ": {
+    "message": "畫一個 Z"
+  },
+  "gestureShapeUl": {
+    "message": "先向上、再向左拖曳"
+  },
+  "gestureShapeDr": {
+    "message": "先向下、再向右拖曳"
+  },
+  "gestureShapeLu": {
+    "message": "先向左、再向上拖曳"
+  },
+  "gestureShapeRl": {
+    "message": "向右拖曳再拖回來"
+  },
+  "gesturePermission": {
+    "message": "僅用於辨識手勢，不讀取網頁內容。"
+  },
+  "gestureDenied": {
+    "message": "未取得網站存取權限，滑鼠手勢沒有開啟。"
+  },
+  "gestureOn": {
+    "message": "滑鼠手勢已開啟"
+  },
+  "optGesturePreset": {
+    "message": "手勢"
+  },
+  "presetZ": {
+    "message": "Z 形"
+  },
+  "presetZSub": {
+    "message": "預設"
+  },
+  "presetUl": {
+    "message": "上，左"
+  },
+  "presetUlSub": {
+    "message": "更快"
+  },
+  "presetDr": {
+    "message": "下，右"
+  },
+  "presetDrSub": {
+    "message": "備用"
+  },
+  "presetLu": {
+    "message": "左，上"
+  },
+  "presetLuSub": {
+    "message": "常見"
+  },
+  "presetRl": {
+    "message": "右，左"
+  },
+  "presetRlSub": {
+    "message": "折返"
+  },
+  "optGestureTry": {
+    "message": "試試看"
+  },
+  "gesturePadHint": {
+    "message": "在這裡按住滑鼠$1"
+  },
+  "gesturePadDone": {
+    "message": "很好。在網頁上這樣畫即可。"
+  },
+  "gesturePadCombo": {
+    "message": "連畫 $1 個，會重新開啟 $1 個分頁。"
+  },
+  "gesturePadTip": {
+    "message": "小技巧：1 秒內連畫兩個 Z，會重新開啟兩個分頁。"
+  },
+  "gestureTipSmall": {
+    "message": "再畫大一些"
+  },
+  "gestureTipFirst": {
+    "message": "第一筆由左向右"
+  },
+  "gestureTipDiagonal": {
+    "message": "中間一筆斜向左下"
+  },
+  "gestureTipLast": {
+    "message": "最後一筆由左向右"
+  },
+  "gestureTipSlow": {
+    "message": "畫得再快一些"
+  },
+  "gestureTipUp": {
+    "message": "先向上拖曳"
+  },
+  "gestureTipDown": {
+    "message": "先向下拖曳"
+  },
+  "gestureTipLeft": {
+    "message": "再向左拖曳"
+  },
+  "gestureTipRight": {
+    "message": "再向右拖曳"
+  },
+  "gestureTipStartLeft": {
+    "message": "先向左拖曳"
+  },
+  "gestureTipThenUp": {
+    "message": "再向上拖曳"
+  },
+  "gestureTipStartRight": {
+    "message": "先向右拖曳"
+  },
+  "gestureTipBack": {
+    "message": "再沿原路拖回左邊"
+  },
+  "gestureUnknown": {
+    "message": "未辨識"
+  },
+  "gestureDone": {
+    "message": "已重新開啟"
+  },
+  "gestureRecognized": {
+    "message": "已辨識"
+  },
+  "optGestureTrail": {
+    "message": "顯示軌跡"
+  },
+  "optGestureExclude": {
+    "message": "不使用手勢的網站"
+  },
+  "optGestureExcludeReset": {
+    "message": "回復預設網站"
+  },
+  "gxMapsGoogle": {
+    "message": "Google 地圖"
+  },
+  "gxMapsBaidu": {
+    "message": "百度地圖"
+  },
+  "gxMapsAmap": {
+    "message": "高德地圖"
+  },
+  "gxMapsTencent": {
+    "message": "騰訊地圖"
+  },
+  "gxMapsApple": {
+    "message": "Apple 地圖"
+  },
+  "gxMapsBing": {
+    "message": "Bing 地圖"
+  },
+  "gxJsDesign": {
+    "message": "即時設計"
+  },
+  "optGestureExcludeHint": {
+    "message": "適合需要用滑鼠拖曳的網站，例如地圖和設計工具。"
+  },
+  "welcomeReplay": {
+    "message": "觀看介紹"
+  },
+  "welcomeStep2": {
+    "message": "按下"
+  },
+  "welcomeStep3": {
+    "message": "找回"
+  },
+  "welcomeStep4": {
+    "message": "或畫一個 Z"
+  },
+  "welcomeGestureTitle": {
+    "message": "或者，畫一個 Z。"
+  },
+  "welcomeTitle": {
+    "message": "關閉的分頁，一鍵即回。"
+  },
+  "welcomeBody": {
+    "message": "分頁會回到原本的位置，上一頁與下一頁記錄也一併保留。"
+  },
+  "welcomeShortcut": {
+    "message": "鍵盤快速鍵"
+  },
+  "welcomeReadyHint": {
+    "message": "在任何網頁上皆可使用"
+  },
+  "welcomeUnsetHint": {
+    "message": "預設快速鍵已被佔用，請另設一個。"
+  },
+  "welcomeReady": {
+    "message": "已就緒"
+  },
+  "welcomeUnset": {
+    "message": "未設定"
+  },
+  "welcomeStart": {
+    "message": "開始使用"
+  },
+  "welcomeSet": {
+    "message": "設定快速鍵"
+  },
+  "welcomeChange": {
+    "message": "更改快速鍵"
+  },
+  "welcomeLater": {
+    "message": "稍後"
+  },
+  "welcomePin": {
+    "message": "按一下工具列中的擴充功能按鈕，即可將 TabAgain 釘選在網址列旁。"
+  }
+}

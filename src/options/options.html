@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="optDocTitle">TabAgain 设置</title>
+  <link rel="icon" href="../icons/icon-32.png">
+  <script src="../shared/theme.js"></script>
+  <link rel="stylesheet" href="../shared/tokens.css">
+  <link rel="stylesheet" href="options.css">
+  <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+  <svg class="defs" aria-hidden="true" width="0" height="0" style="position:absolute"><defs>
+    <linearGradient id="brand-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3D8BFF"/><stop offset="1" stop-color="#7B5CFF"/></linearGradient>
+  </defs></svg>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <main class="page">
+    <header class="hero">
+      <img class="hero-mark" src="../icons/logo-256.png" alt="">
+      <div class="hero-text">
+        <h1>TabAgain</h1>
+        <p class="slogan" data-i18n="extSlogan">让关闭的标签页，再次回来</p>
+      </div>
+      <span class="version" id="version"></span>
+    </header>
+
+    <!-- 快捷键 -->
+    <section class="group">
+      <h2 data-i18n="secShortcut">快捷键</h2>
+      <div class="card glass">
+        <div class="row">
+          <span class="glyph"><svg class="i"><use href="#i-keyboard"/></svg></span>
+          <span class="label"><b data-i18n="optShortcut">恢复上次关闭</b><small data-i18n="optShortcutHint">在任意页面按下即可恢复</small></span>
+          <span class="kbd big" id="shortcut"></span>
+          <button class="icon-pill" id="replay-guide" data-i18n-title="welcomeReplay"><svg class="i"><use href="#i-play"/></svg></button>
+          <button class="pill" id="edit-shortcut"><span data-i18n="optShortcutEdit">修改</span><svg class="i i-sm"><use href="#i-external"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 鼠标手势 -->
+    <section class="group" id="gesture-group">
+      <h2 data-i18n="secGesture">鼠标手势</h2>
+      <div class="card glass gesture-card">
+        <label class="row toggle-row">
+          <span class="glyph"><svg class="i"><use href="#i-gesture"/></svg></span>
+          <span class="label"><b data-i18n="optGesture">鼠标手势</b><small id="gesture-hint"></small>
+            <small class="note"><svg class="i i-sm"><use href="#i-shield"/></svg><span data-i18n="gesturePermission">仅用于识别手势，不读取网页内容。</span></small></span>
+          <input type="checkbox" class="switch" id="gesture-switch">
+        </label>
+        <div class="row column-row">
+          <div class="row-head">
+            <span class="glyph"><svg class="i"><use href="#i-route"/></svg></span>
+            <span class="label"><b data-i18n="optGesturePreset">手势</b></span>
+          </div>
+          <div class="presets" role="radiogroup" id="presets">
+            <button class="preset" role="radio" data-value="z">
+              <svg class="demo" viewBox="0 0 80 52" aria-hidden="true"><path class="guide" d="M22 12h36L22 40h36"/><circle class="start" cx="22" cy="12" r="2.6"/><path class="draw" pathLength="100" stroke-dasharray="100 100" d="M22 12h36L22 40h36"><animate attributeName="stroke-dashoffset" values="100;0;0;0" keyTimes="0;.42;.8;1" dur="2.6s" calcMode="spline" keySplines=".45 0 .3 1;0 0 1 1;0 0 1 1" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;1;0;0" keyTimes="0;.42;.78;.9;1" dur="2.6s" repeatCount="indefinite"/></path><circle class="tip" r="3.4"><animateMotion path="M22 12h36L22 40h36" keyPoints="0;1;1;1" keyTimes="0;.42;.8;1" dur="2.6s" calcMode="spline" keySplines=".45 0 .3 1;0 0 1 1;0 0 1 1" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.42;.52;1" dur="2.6s" repeatCount="indefinite"/></circle></svg>
+              <b data-i18n="presetZ">Z 形</b><small data-i18n="presetZSub">默认</small>
+            </button>
+            <button class="preset" role="radio" data-value="lu">
+              <svg class="demo" viewBox="0 0 80 52" aria-hidden="true"><path class="guide" d="M56 38H26V12"/><circle class="start" cx="56" cy="38" r="2.6"/><path class="draw" pathLength="100" stroke-dasharray="100 100" d="M56 38H26V12"><animate attributeName="stroke-dashoffset" values="100;0;0;0" keyTimes="0;.42;.8;1" dur="2.6s" calcMode="spline" keySplines=".45 0 .3 1;0 0 1 1;0 0 1 1" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;1;0;0" keyTimes="0;.42;.78;.9;1" dur="2.6s" repeatCount="indefinite"/></path><circle class="tip" r="3.4"><animateMotion path="M56 38H26V12" keyPoints="0;1;1;1" keyTimes="0;.42;.8;1" dur="2.6s" calcMode="spline" keySplines=".45 0 .3 1;0 0 1 1;0 0 1 1" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.42;.52;1" dur="2.6s" repeatCount="indefinite"/></circle></svg>
+              <b data-i18n="presetLu">左，上</b><small data-i18n="presetLuSub">常见</small>
+            </button>
+            <button class="preset" role="radio" data-value="rl">
+              <svg class="demo" viewBox="0 0 80 52" aria-hidden="true"><path class="guide" d="M18 19h40a6.5 6.5 0 0 1 0 13H18"/><circle class="start" cx="18" cy="19" r="2.6"/><path class="draw" pathLength="100" stroke-dasharray="100 100" d="M18 19h40a6.5 6.5 0 0 1 0 13H18"><animate attributeName="stroke-dashoffset" values="100;0;0;0" keyTimes="0;.42;.8;1" dur="2.6s" calcMode="spline" keySplines=".45 0 .3 1;0 0 1 1;0 0 1 1" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;1;0;0" keyTimes="0;.42;.78;.9;1" dur="2.6s" repeatCount="indefinite"/></path><circle class="tip" r="3.4"><animateMotion path="M18 19h40a6.5 6.5 0 0 1 0 13H18" keyPoints="0;1;1;1" keyTimes="0;.42;.8;1" dur="2.6s" calcMode="spline" keySplines=".45 0 .3 1;0 0 1 1;0 0 1 1" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.42;.52;1" dur="2.6s" repeatCount="indefinite"/></circle></svg>
+              <b data-i18n="presetRl">右，左</b><small data-i18n="presetRlSub">折返</small>
+            </button>
+            <button class="preset" role="radio" data-value="ul">
+              <svg class="demo" viewBox="0 0 80 52" aria-hidden="true"><path class="guide" d="M50 42V12H24"/><circle class="start" cx="50" cy="42" r="2.6"/><path class="draw" pathLength="100" stroke-dasharray="100 100" d="M50 42V12H24"><animate attributeName="stroke-dashoffset" values="100;0;0;0" keyTimes="0;.42;.8;1" dur="2.6s" calcMode="spline" keySplines=".45 0 .3 1;0 0 1 1;0 0 1 1" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;1;0;0" keyTimes="0;.42;.78;.9;1" dur="2.6s" repeatCount="indefinite"/></path><circle class="tip" r="3.4"><animateMotion path="M50 42V12H24" keyPoints="0;1;1;1" keyTimes="0;.42;.8;1" dur="2.6s" calcMode="spline" keySplines=".45 0 .3 1;0 0 1 1;0 0 1 1" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.42;.52;1" dur="2.6s" repeatCount="indefinite"/></circle></svg>
+              <b data-i18n="presetUl">上，左</b><small data-i18n="presetUlSub">更快</small>
+            </button>
+            <button class="preset" role="radio" data-value="dr">
+              <svg class="demo" viewBox="0 0 80 52" aria-hidden="true"><path class="guide" d="M28 10v30h28"/><circle class="start" cx="28" cy="10" r="2.6"/><path class="draw" pathLength="100" stroke-dasharray="100 100" d="M28 10v30h28"><animate attributeName="stroke-dashoffset" values="100;0;0;0" keyTimes="0;.42;.8;1" dur="2.6s" calcMode="spline" keySplines=".45 0 .3 1;0 0 1 1;0 0 1 1" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;1;0;0" keyTimes="0;.42;.78;.9;1" dur="2.6s" repeatCount="indefinite"/></path><circle class="tip" r="3.4"><animateMotion path="M28 10v30h28" keyPoints="0;1;1;1" keyTimes="0;.42;.8;1" dur="2.6s" calcMode="spline" keySplines=".45 0 .3 1;0 0 1 1;0 0 1 1" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.04;.42;.52;1" dur="2.6s" repeatCount="indefinite"/></circle></svg>
+              <b data-i18n="presetDr">下，右</b><small data-i18n="presetDrSub">备选</small>
+            </button>
+          </div>
+        </div>
+        <div class="row column-row">
+          <div class="row-head">
+            <span class="glyph"><svg class="i"><use href="#i-cursor"/></svg></span>
+            <span class="label"><b data-i18n="optGestureTry">试一试</b><small id="pad-tip"></small></span>
+          </div>
+          <div class="pad" id="pad" tabindex="-1">
+            <svg class="pad-guide" viewBox="0 0 120 80" aria-hidden="true"><path id="pad-guide-path" d="M30 18h60L30 62h60"/><circle id="pad-guide-start" cx="30" cy="18" r="3"/></svg>
+            <p class="pad-hint" id="pad-hint"></p>
+            <p class="pad-result" id="pad-result" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="gesture-more" id="gesture-more">
+          <div class="gesture-more-inner">
+            <label class="row">
+              <span class="glyph"><svg class="i"><use href="#i-sparkle"/></svg></span>
+              <span class="label"><b data-i18n="optGestureTrail">显示轨迹</b></span>
+              <input type="checkbox" class="switch" data-key="gestureTrail">
+            </label>
+            <div class="row column-row">
+              <div class="row-head">
+                <span class="glyph"><svg class="i"><use href="#i-hand"/></svg></span>
+                <span class="label"><b data-i18n="optGestureExclude">不使用手势的网站</b><small data-i18n="optGestureExcludeHint"></small></span>
+              </div>
+              <form class="exclude" id="gx-form" autocomplete="off">
+                <div class="tokens" id="gx-list"></div>
+                <div class="add-site">
+                  <input id="gx-input" type="text" spellcheck="false" placeholder="example.com/editor">
+                  <button class="pill" type="submit"><svg class="i i-sm"><use href="#i-plus"/></svg><span data-i18n="add">添加</span></button>
+                </div>
+                <button class="text-link" type="button" id="gx-reset" data-i18n="optGestureExcludeReset" hidden>恢复默认网站</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 恢复 -->
+    <section class="group">
+      <h2 data-i18n="secRestore">恢复</h2>
+      <div class="card glass">
+        <label class="row">
+          <span class="glyph"><svg class="i"><use href="#i-restore"/></svg></span>
+          <span class="label"><b data-i18n="optSession">保留浏览记录</b><small data-i18n="optSessionHint"></small></span>
+          <input type="checkbox" class="switch" data-key="preferSession">
+        </label>
+        <div class="row">
+          <span class="glyph"><svg class="i"><use href="#i-tabs"/></svg></span>
+          <span class="label"><b data-i18n="optPosition">打开位置</b><small data-i18n="optPositionHint"></small></span>
+          <div class="segmented" role="radiogroup" data-key="position">
+            <span class="thumb"></span>
+            <button role="radio" data-value="original" data-i18n="posOriginal">原位置</button>
+            <button role="radio" data-value="end" data-i18n="posEnd">末尾</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 记录 -->
+    <section class="group">
+      <h2 data-i18n="secHistory">记录</h2>
+      <div class="card glass">
+        <div class="row">
+          <span class="glyph"><svg class="i"><use href="#i-stack"/></svg></span>
+          <span class="label"><b data-i18n="optLimit">保存数量</b><small data-i18n="optLimitHint"></small></span>
+          <div class="segmented" role="radiogroup" data-key="limit" data-type="number">
+            <span class="thumb"></span>
+            <button role="radio" data-value="1000">1,000</button>
+            <button role="radio" data-value="10000">10,000</button>
+            <button role="radio" data-value="50000">50,000</button>
+            <button role="radio" data-value="99999">99,999</button>
+          </div>
+        </div>
+        <div class="row">
+          <span class="glyph"><svg class="i"><use href="#i-calendar"/></svg></span>
+          <span class="label"><b data-i18n="optRetention">保留时长</b><small data-i18n="optRetentionHint"></small></span>
+          <div class="segmented" role="radiogroup" data-key="retention" data-type="number">
+            <span class="thumb"></span>
+            <button role="radio" data-value="30" data-i18n="ret30">30 天</button>
+            <button role="radio" data-value="365" data-i18n="ret365">1 年</button>
+            <button role="radio" data-value="0" data-i18n="retForever">永久</button>
+          </div>
+        </div>
+        <label class="row">
+          <span class="glyph"><svg class="i"><use href="#i-check"/></svg></span>
+          <span class="label"><b data-i18n="optDedupe">合并相同网址</b><small data-i18n="optDedupeHint"></small></span>
+          <input type="checkbox" class="switch" data-key="dedupe">
+        </label>
+        <label class="row">
+          <span class="glyph"><svg class="i"><use href="#i-clock"/></svg></span>
+          <span class="label"><b data-i18n="optKeep">重启后保留</b><small data-i18n="optKeepHint"></small></span>
+          <input type="checkbox" class="switch" data-key="keepOnRestart">
+        </label>
+      </div>
+    </section>
+
+    <!-- 隐私 -->
+    <section class="group">
+      <h2 data-i18n="secPrivacy">隐私</h2>
+      <div class="card glass">
+        <div class="row column-row">
+          <div class="row-head">
+            <span class="glyph"><svg class="i"><use href="#i-eyeOff"/></svg></span>
+            <span class="label"><b data-i18n="optExclude">不记录的网站</b><small data-i18n="optExcludeHint"></small></span>
+          </div>
+          <form class="exclude" id="exclude-form" autocomplete="off">
+            <div class="tokens" id="exclude-list"></div>
+            <div class="add-site">
+              <input id="exclude-input" type="text" spellcheck="false" data-i18n-placeholder="optExcludePlaceholder">
+              <button class="pill" type="submit"><svg class="i i-sm"><use href="#i-plus"/></svg><span data-i18n="add">添加</span></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 列表 -->
+    <section class="group">
+      <h2 data-i18n="secList">列表</h2>
+      <div class="card glass">
+        <div class="row">
+          <span class="glyph"><svg class="i"><use href="#i-pages"/></svg></span>
+          <span class="label"><b data-i18n="optPageSize">每页条数</b><small data-i18n="optPageSizeHint"></small></span>
+          <div class="segmented" role="radiogroup" data-key="pageSize" data-type="number">
+            <span class="thumb"></span>
+            <button role="radio" data-value="25">25</button>
+            <button role="radio" data-value="50">50</button>
+            <button role="radio" data-value="100">100</button>
+            <button role="radio" data-value="200">200</button>
+          </div>
+        </div>
+        <label class="row">
+          <span class="glyph"><svg class="i"><use href="#i-chips"/></svg></span>
+          <span class="label"><b data-i18n="optChips">站点筛选条</b><small data-i18n="optChipsHint"></small></span>
+          <input type="checkbox" class="switch" data-key="showChips">
+        </label>
+      </div>
+    </section>
+
+    <!-- 外观 -->
+    <section class="group">
+      <h2 data-i18n="secAppearance">外观</h2>
+      <div class="card glass">
+        <div class="row">
+          <span class="glyph"><svg class="i"><use href="#i-sun"/></svg></span>
+          <span class="label"><b data-i18n="optTheme">主题</b></span>
+          <div class="segmented" role="radiogroup" data-key="theme">
+            <span class="thumb"></span>
+            <button role="radio" data-value="auto"><svg class="i"><use href="#i-auto"/></svg><span data-i18n="themeAuto">自动</span></button>
+            <button role="radio" data-value="light"><svg class="i"><use href="#i-sun"/></svg><span data-i18n="themeLight">浅色</span></button>
+            <button role="radio" data-value="dark"><svg class="i"><use href="#i-moon"/></svg><span data-i18n="themeDark">深色</span></button>
+          </div>
+        </div>
+        <label class="row">
+          <span class="glyph"><svg class="i"><use href="#i-pin"/></svg></span>
+          <span class="label"><b data-i18n="optBadge">工具栏显示数量</b></span>
+          <input type="checkbox" class="switch" data-key="badge">
+        </label>
+      </div>
+    </section>
+
+    <!-- 数据 -->
+    <section class="group">
+      <h2 data-i18n="secData">数据</h2>
+      <div class="card glass">
+        <button class="row" id="open-history">
+          <span class="glyph"><svg class="i"><use href="#i-history"/></svg></span>
+          <span class="label"><b data-i18n="optOpenHistory">全部历史</b><small id="stored-text"></small></span>
+          <span class="stat" id="stored">0</span>
+          <svg class="i chev"><use href="#i-chevron"/></svg>
+        </button>
+        <div class="row">
+          <span class="glyph"><svg class="i"><use href="#i-database"/></svg></span>
+          <span class="label"><b data-i18n="optUsage">已用空间</b><small data-i18n="optFooter">所有数据仅保存在本机。</small></span>
+          <span class="stat small" id="usage">—</span>
+        </div>
+        <button class="row danger-row" id="clear-range">
+          <span class="glyph danger"><svg class="i"><use href="#i-trash"/></svg></span>
+          <span class="label"><b data-i18n="optClearRange">清除记录…</b><small data-i18n="optClearRangeHint"></small></span>
+          <svg class="i chev"><use href="#i-chevron"/></svg>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="dialog glass" id="dialog" role="alertdialog" aria-modal="true" aria-labelledby="dlg-title" hidden>
+    <span class="dlg-icon"><svg class="i i-xl"><use href="#i-trash"/></svg></span>
+    <h3 id="dlg-title" data-i18n="clearRangeTitle">清除记录</h3>
+    <p data-i18n="clearRangeBody">选择要清除的时间范围，此操作无法撤销。</p>
+    <div class="dlg-extra">
+      <div class="segmented" role="radiogroup" id="range-seg">
+        <span class="thumb"></span>
+        <button role="radio" data-value="hour" data-i18n="rangeHour" aria-checked="true">过去 1 小时</button>
+        <button role="radio" data-value="today" data-i18n="rangeToday">今天</button>
+        <button role="radio" data-value="week" data-i18n="range7d">过去 7 天</button>
+        <button role="radio" data-value="all" data-i18n="rangeAll">全部</button>
+      </div>
+    </div>
+    <div class="dlg-actions">
+      <button class="btn" id="dlg-cancel" data-i18n="cancel">取消</button>
+      <button class="btn destructive" id="dlg-ok" data-i18n="clear">清除</button>
+    </div>
+  </div>
+
+  <!-- 首次安装引导 -->
+  <div class="wl-scrim" id="wl-scrim" hidden></div>
+  <section class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="wl-title" aria-describedby="wl-body" hidden>
+    <div class="wl-stage">
+      <div class="wl-aura" aria-hidden="true"><i></i><i></i></div>
+      <div class="wl-anim" id="wl-anim" aria-hidden="true"></div>
+      <button class="wl-close" id="wl-close" data-i18n-title="close"><svg class="i"><use href="#i-close"/></svg></button>
+    </div>
+    <ol class="wl-steps" id="wl-steps" aria-hidden="true">
+      <li><span class="wl-bar"><i></i></span><span class="wl-step-keys"><span data-i18n="welcomeStep2">按下</span><span class="kbd" id="wl-step-keys"></span><span data-i18n="welcomeStep3">找回</span></span></li>
+      <li><span class="wl-bar"><i></i></span><span class="wl-step-z"><span data-i18n="welcomeStep4">或画一个 Z</span></span></li>
+    </ol>
+    <!-- 文案随动画在两段之间淡入淡出（叠在同一格，高度不变）；下方两张卡片始终都在 -->
+    <div class="wl-pages" id="wl-pages" data-page="0">
+      <div class="wl-copy wl-page" data-page="0">
+        <h2 id="wl-title" data-i18n="welcomeTitle">关闭的标签页，一键即回。</h2>
+        <p id="wl-body" data-i18n="welcomeBody"></p>
+      </div>
+      <div class="wl-copy wl-page" data-page="1" aria-hidden="true">
+        <h2 data-i18n="welcomeGestureTitle">或者，画一个 Z。</h2>
+        <p id="wl-gesture-body"></p>
+      </div>
+    </div>
+    <div class="wl-group" id="wl-group" data-focus="key">
+      <div class="wl-key wl-row" id="wl-key">
+        <span class="wl-key-glyph"><svg class="i"><use href="#i-keyboard"/></svg></span>
+        <span class="wl-key-text"><b data-i18n="welcomeShortcut">键盘快捷键</b><small id="wl-key-hint"></small></span>
+        <span class="kbd big" id="wl-keys"></span>
+        <span class="wl-state" id="wl-state"><svg class="wl-tick" viewBox="0 0 16 16"><path d="m4 8.4 2.6 2.6L12 5.2"/></svg><span id="wl-state-text"></span></span>
+      </div>
+      <label class="wl-row wl-gesture" id="wl-gesture">
+        <span class="wl-key-glyph"><svg class="i"><use href="#i-gesture"/></svg></span>
+        <span class="wl-key-text"><b data-i18n="optGesture">鼠标手势</b><small data-i18n="gesturePermission">仅用于识别手势，不读取网页内容。</small></span>
+        <input type="checkbox" class="switch" id="wl-gesture-switch">
+      </label>
+    </div>
+    <div class="wl-actions">
+      <button class="wl-btn ghost" id="wl-secondary"></button>
+      <button class="wl-btn primary" id="wl-primary"><span></span><svg class="i i-sm"><use href="#i-external"/></svg></button>
+    </div>
+    <p class="wl-tip" id="wl-tip"><svg class="i i-xs"><use href="#i-pin" id="wl-tip-icon"/></svg><span id="wl-tip-text" data-i18n="welcomePin">提示：点工具栏的拼图图标，把它固定在地址栏旁边。</span><span class="wl-tip-warm" id="wl-tip-warm" aria-hidden="true"></span></p>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg class="i"><use href="#i-check"/></svg><span id="toast-text"></span>
+  </div>
+
+  <script src="../shared/icons.js"></script>
+  <script src="../gesture/core.js"></script>
+  <script src="options.js" type="module"></script>
+  <script src="welcome.js" type="module"></script>
+  <script src="gesture-settings.js" type="module"></script>
+</body>
+</html>

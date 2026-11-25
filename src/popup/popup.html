@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="extName">TabAgain</title>
+  <script src="../shared/theme.js"></script>
+  <link rel="stylesheet" href="../shared/tokens.css">
+  <link rel="stylesheet" href="../shared/list.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <div class="app">
+    <label class="search glass" id="search-wrap">
+      <svg class="i i-sm"><use href="#i-search"/></svg>
+      <input id="search" type="text" spellcheck="false" autocomplete="off" data-i18n-placeholder="searchPlaceholder" aria-controls="list">
+      <span class="kbd search-hint" aria-hidden="true"><kbd>/</kbd></span>
+      <button class="search-clear" id="search-clear" type="button" hidden data-i18n-title="clearSearch">
+        <svg class="i"><use href="#i-close"/></svg>
+      </button>
+    </label>
+
+    <nav class="chips" id="chips" data-i18n-label="sitesLabel" hidden></nav>
+
+    <main class="scroller" id="scroller">
+      <div class="sticky" id="sticky" hidden><div class="section-label"><span class="label"></span><span class="n"></span></div></div>
+      <div class="vlist" id="list" role="listbox" tabindex="-1" data-i18n-label="closedTabsLabel"></div>
+      <div class="list-end" id="list-end" hidden>
+        <div class="status" id="status" hidden></div>
+        <div id="pager"></div>
+      </div>
+    </main>
+
+    <div class="empty" id="empty" hidden>
+      <div class="empty-art" aria-hidden="true">
+        <span class="card c3"></span><span class="card c2"></span>
+        <span class="card c1"><svg class="i"><use href="#i-restore"/></svg></span>
+      </div>
+      <h2 id="empty-title"></h2>
+      <p id="empty-hint"></p>
+    </div>
+
+    <footer class="footer glass">
+      <button class="footer-btn" id="btn-last" data-i18n-title="cmdRestoreLast">
+        <svg class="i i-sm"><use href="#i-restore"/></svg>
+        <span data-i18n="lastClosed">恢复上次</span>
+        <span class="kbd" id="shortcut"></span>
+      </button>
+      <span class="spacer"></span>
+      <button class="footer-btn" id="btn-all">
+        <span id="all-label" data-i18n="history">历史</span>
+        <svg class="i i-xs chev"><use href="#i-chevron"/></svg>
+      </button>
+      <span class="divider" aria-hidden="true"></span>
+      <button class="footer-icon" id="btn-cal" data-i18n-title="datePick">
+        <svg class="i"><use href="#i-calendar"/></svg>
+      </button>
+      <button class="footer-icon" id="btn-settings" data-i18n-title="settings">
+        <svg class="i"><use href="#i-sliders"/></svg>
+      </button>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg class="i"><use href="#i-check"/></svg>
+    <span class="toast-text"></span>
+    <button class="toast-undo" data-i18n="undo">撤销</button>
+  </div>
+
+  <script src="../shared/icons.js"></script>
+  <script src="popup.js" type="module"></script>
+</body>
+</html>
